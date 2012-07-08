@@ -1,11 +1,9 @@
-package com.example.app;
-
-
+package com.example.sampleapp;
 import android.app.Activity;
 import android.os.Bundle;
 
 
-public class MainActivity extends Activity {
+public class SecondaryActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -13,11 +11,4 @@ public class MainActivity extends Activity {
 		
 	}
 
-	@Override
-	public void onBackPressed() {		
-		super.onBackPressed();
-		System.exit(0);		
-	}
-
-	
 }
