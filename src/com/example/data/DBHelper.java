@@ -1,27 +1,33 @@
 package com.example.data;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-	public static final String TABLE_COMMENTS = "comments";
-	public static final String COLUMN_ID = "_id";
-	public static final String COLUMN_COMMENT = "comment";
-
-	private static final String DATABASE_NAME = "commments.db";
+	private static final String DATABASE_NAME = "sample.db";
 	private static final int DATABASE_VERSION = 1;
 
-	// Database creation sql statement
-	private static final String DATABASE_CREATE = "create table "
-			+ TABLE_COMMENTS + "(" + COLUMN_ID
-			+ " integer primary key autoincrement, " + COLUMN_COMMENT
-			+ " text not null);";
-
+	private SQLiteDatabase mdb;
+	
 	public DBHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		
+		//Initialize database
+		this.mdb = this.getWritableDatabase();  
+	}
+	
+	public <T extends Table> Cursor get(T table ){
+		
+		return mdb.query(table.getTableName(), table.getFields(),   
+                                null, null, null, null, null);  
+	}
+	
+	public <T extends Table> long insert(T table ){
+		return mdb.insert(table.getTableName(), null, table.writeTo(new ContentValues()));		
 	}
 
 	@Override
@@ -37,12 +43,9 @@ public class DBHelper extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.w(DBHelper.class.getName(),
-				"Upgrading database from version " + oldVersion + " to "
-						+ newVersion + ", which will destroy all old data");
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_COMMENTS);
-		onCreate(db);
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {		
+		//db.execSQL("DROP TABLE IF EXISTS " + );
+		//onCreate(db);
 	}
 
 }

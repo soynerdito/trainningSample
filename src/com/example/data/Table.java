@@ -50,6 +50,8 @@ public abstract class Table {
 		mName = name;
 	}
 
+	public abstract String[] getFields();
+	
 	protected String buildCreateSQL(Field ...fields){
 		StringBuilder builder = new StringBuilder();
 		String comma = "";

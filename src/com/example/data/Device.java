@@ -35,4 +35,9 @@ public class Device extends Table {
 		return null;
 	}
 
+	@Override
+	public String[] getFields() {
+		return new String[]{ mRecID.toString(), mDeviceID.toString(), mDescription.toString() };
+	}
+
 }
