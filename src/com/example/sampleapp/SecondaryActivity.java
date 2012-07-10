@@ -38,6 +38,8 @@ public class SecondaryActivity extends Activity {
 		Button btn = (Button)findViewById(R.id.btnShow);
 		btn.setOnClickListener(new OnClickListener(){
 
+			
+			
 			@Override
 			public void onClick(View v) {
 				displaySharedPreferences();
