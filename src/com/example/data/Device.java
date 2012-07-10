@@ -40,4 +40,9 @@ public class Device extends Table {
 		return new String[]{ mRecID.toString(), mDeviceID.toString(), mDescription.toString() };
 	}
 
+	@Override
+	public Field<Integer> getPrimaryField() {		
+		return mRecID;
+	}
+
 }

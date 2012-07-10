@@ -19,6 +19,9 @@ public abstract class Table {
 		}
 		
 	}
+	
+	public abstract Field<Integer> getPrimaryField();	
+	
 	public class Field<T>{
 		public String mName;
 		public FieldType mDataType;

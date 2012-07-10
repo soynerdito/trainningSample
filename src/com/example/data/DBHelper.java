@@ -29,6 +29,11 @@ public class DBHelper extends SQLiteOpenHelper {
 	public <T extends Table> long insert(T table ){
 		return mdb.insert(table.getTableName(), null, table.writeTo(new ContentValues()));		
 	}
+	
+	public <T extends Table> int delete(T table ){
+		return mdb.delete(table.getTableName(), table.getPrimaryField().mName + " = ?", 
+				new String[] { table.getPrimaryField().getValue().toString() } );		
+	}
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
