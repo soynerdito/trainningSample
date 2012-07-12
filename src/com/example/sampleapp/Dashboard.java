@@ -69,7 +69,12 @@ public class Dashboard extends Activity {
             switch( iOption ){
             	case 0:
             	{
-            		
+            		Device device = new Device();
+            		device.mDescription.setValue( "Telefono" );
+            		device.mDeviceID.setValue( "Dev1" );
+            		mdb.insert(device);
+            		//trigger a refresh
+            		refreshDeviceList();
             	}
             	break;
             	case 1:

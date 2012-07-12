@@ -82,6 +82,21 @@ public abstract class Table {
 		return field;
 	}
 	
+	public static ContentValues writeInteger(ContentValues values, Field<Integer> field ){
+		values.put(field.mName, field.getValue());
+		return values;
+	}
+	
+	public static ContentValues writeString(ContentValues values, Field<String> field ){
+		values.put(field.mName, field.getValue());
+		return values;
+	}
+	
+	public static ContentValues writeDouble(ContentValues values, Field<Double> field ){
+		values.put(field.mName, field.getValue());
+		return values;
+	}
+	
 	public abstract String getCreateStatement();
 	public abstract void loadFrom(Cursor cursor);
 	public abstract ContentValues writeTo(ContentValues values);

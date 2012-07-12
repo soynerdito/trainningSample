@@ -34,8 +34,9 @@ public class Device extends Table {
 	
 	@Override
 	public ContentValues writeTo(ContentValues values) {
-		// TODO Auto-generated method stub
-		return null;
+		values = Table.writeString( values, mDeviceID );
+		values = Table.writeString( values, mDescription );
+		return values;
 	}
 
 	@Override
