@@ -15,6 +15,9 @@ public class Device extends Table {
 		mRecID = new Field<Integer>("_id", FieldType.PRIMARY, -1);
 		mDeviceID = new Field<String>("DeviceID", FieldType.TEXT, "");
 		mDescription = new Field<String>("Description", FieldType.TEXT, "");
+		
+		
+		
 	}
 
 	@Override

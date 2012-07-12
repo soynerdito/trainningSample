@@ -1,55 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20dip"
     android:gravity="center|center_horizontal"
     android:orientation="vertical" >
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dip" >
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="20dip"
-            android:background="@drawable/round_black_bg"
+            android:background="@android:color/transparent"
+            android:choiceMode="none"
+            android:divider="@color/green"
+            android:drawSelectorOnTop="false"
             android:orientation="vertical"
-            android:padding="2dip" >
+            android:padding="2dip"
+            tools:listitem="@layout/option_item" >
 
-            <Button
-                android:id="@+id/btnAction1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/black_gradient_selector"
-                android:gravity="center_horizontal"
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/darker_gray" />
-
-            <Button
-                android:id="@+id/btnAction2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/black_gradient_selector"
-                android:gravity="center_horizontal"
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/darker_gray" />
-
-            <Button
-                android:id="@+id/btnAction3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/black_gradient_selector"
-                android:gravity="center_horizontal"
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-
+        </ListView>
     </RelativeLayout>
 
 </LinearLayout>
