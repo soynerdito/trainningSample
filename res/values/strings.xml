@@ -4,6 +4,7 @@
     <string name="select_contact">Select Contact</string>
     <string name="input_something">Input Something</string>
     <string name="title">Pocket Active Guard</string>
-    <string name="device_type">Device Type</string>
+    <string name="device_type">Name</string>
     <string name="name">Device ID</string>
+    <string name="description">Description</string>
 </resources>

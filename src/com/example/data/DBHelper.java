@@ -8,20 +8,21 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-	private static final String DATABASE_NAME = "sample.db";
+	private static final String DATABASE_NAME = "sampledb";
 	private static final int DATABASE_VERSION = 1;
 
-	private SQLiteDatabase mdb;
+	private static SQLiteDatabase mdb = null;
 	
 	public DBHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		
 		//Initialize database
-		this.mdb = this.getWritableDatabase();  
+		if( mdb == null ){
+			this.mdb = this.getWritableDatabase();
+		}
 	}
 	
 	public <T extends Table> Cursor get(T table ){
-		
 		return mdb.query(table.getTableName(), table.getFields(),   
                                 null, null, null, null, null);  
 	}
@@ -34,6 +35,11 @@ public class DBHelper extends SQLiteOpenHelper {
 		return mdb.delete(table.getTableName(), table.getPrimaryField().mName + " = ?", 
 				new String[] { table.getPrimaryField().getValue().toString() } );		
 	}
+	
+	public <T extends Table> int delete(T table, int recID ){
+		return mdb.delete(table.getTableName(), table.getPrimaryField().mName + " = ?", 
+				new String[] { String.valueOf(recID) } );		
+	}	
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
@@ -42,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		String sqlStatement;
 		for( int i=0; i< tables.length; i++) {
 			sqlStatement = tables[i].getCreateStatement();
+			System.out.println(sqlStatement);
 			database.execSQL( sqlStatement );
 		}
 
