@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">sampleApp</string>
     <string name="action">Action</string>
     <string name="select_contact">Select Contact</string>
@@ -7,4 +8,13 @@
     <string name="device_type">Name</string>
     <string name="name">Device ID</string>
     <string name="description">Description</string>
+    <string name="preferences">Preferences</string>
+    <string name="exit">Exit</string>
+    <string name="about">About</string>
+    <string name="about_memo">This app is a sample app for a basic android seminar.
+
+This app is a sample app NOTHING SPECIAL HERE!!
+
+All source code for this app is made public on github.</string>
+
 </resources>

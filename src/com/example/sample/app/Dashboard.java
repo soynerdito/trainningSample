@@ -1,4 +1,4 @@
-package com.example.sampleapp;
+package com.example.sample.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 
 import com.example.data.DBHelper;
 import com.example.data.Device;
+import com.soynerdito.sample.app.R;
 
 public class Dashboard extends Activity {
 
@@ -88,7 +90,7 @@ public class Dashboard extends Activity {
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-		System.exit(0);
+		exitApp();
 	}
 
 	@Override
@@ -159,5 +161,66 @@ public class Dashboard extends Activity {
 
 		alert.show();
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+
+		
+		MenuItem mniPref = menu.add(0, 2, Menu.NONE, R.string.preferences);
+		MenuItem mniExit = menu.add(0, 3, Menu.NONE, R.string.exit);
+		MenuItem mniAbout = menu.add(0, 3, Menu.NONE, R.string.about);
+		
+		mniPref.setIcon(android.R.drawable.ic_menu_preferences);
+		mniExit.setIcon(android.R.drawable.ic_menu_close_clear_cancel);
+		
+		mniAbout.setIcon(android.R.drawable.ic_menu_help);
+
+		mniPref.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				onPreferences();
+				return false;
+			}
+
+		});
+		
+		mniExit.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				exitApp();
+				return false;
+			}
+
+		});
+		
+		mniAbout.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				onAbout();
+				return false;
+			}
+
+		});
+		return true;
+	}
+	
+	protected void onAbout() {
+		Intent intent = new Intent(this, About.class);
+		startActivity(intent);
+	}
+
+	protected void exitApp() {
+		System.exit(0);
+	}
+
+	protected void onPreferences() {
+		Intent intent = new Intent(this, MyPreferences.class);
+		startActivity(intent);
+	}
+
 
 }

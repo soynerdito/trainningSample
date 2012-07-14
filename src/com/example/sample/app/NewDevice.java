@@ -1,7 +1,8 @@
-package com.example.sampleapp;
+package com.example.sample.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.soynerdito.sample.app.R;
 
 public class NewDevice extends Activity {
 

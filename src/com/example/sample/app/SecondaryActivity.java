@@ -1,4 +1,4 @@
-package com.example.sampleapp;
+package com.example.sample.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.soynerdito.sample.app.R;
 
 
 public class SecondaryActivity extends Activity {

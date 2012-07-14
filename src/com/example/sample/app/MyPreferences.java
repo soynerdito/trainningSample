@@ -1,7 +1,8 @@
-package com.example.sampleapp;
+package com.example.sample.app;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import com.soynerdito.sample.app.R;
 
 public class MyPreferences extends PreferenceActivity {
 

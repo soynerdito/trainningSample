@@ -1,6 +1,6 @@
 package com.example.widgets;
 
-import com.example.sampleapp.R;
+import com.soynerdito.sample.app.R;
 import android.app.Service;
 import android.content.Context;
 import android.util.AttributeSet;

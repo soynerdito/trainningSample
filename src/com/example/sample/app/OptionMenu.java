@@ -1,4 +1,4 @@
-package com.example.sampleapp;
+package com.example.sample.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.soynerdito.sample.app.R;
 
 
 public class OptionMenu extends Activity implements OnItemClickListener {
